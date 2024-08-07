@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.API", "DongleSimulator.API\DongleSimulator.API.csproj", "{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Infra", "DongleSimulator.Infra\DongleSimulator.Infra.csproj", "{2EC77F4D-F06E-4746-9585-954D1A4DFA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Domain", "DongleSimulator.Domain\DongleSimulator.Domain.csproj", "{26AFF402-4250-4658-9EE3-8D312A85C208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Shared", "DongleSimulator.Shared\DongleSimulator.Shared.csproj", "{E3561334-C548-4E82-964D-2DC5DB1260A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Application", "DongleSimulator.Application\DongleSimulator.Application.csproj", "{AB989F3B-556E-429D-8857-9081F9039D5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC77F4D-F06E-4746-9585-954D1A4DFA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC77F4D-F06E-4746-9585-954D1A4DFA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC77F4D-F06E-4746-9585-954D1A4DFA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC77F4D-F06E-4746-9585-954D1A4DFA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AFF402-4250-4658-9EE3-8D312A85C208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AFF402-4250-4658-9EE3-8D312A85C208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AFF402-4250-4658-9EE3-8D312A85C208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AFF402-4250-4658-9EE3-8D312A85C208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3561334-C548-4E82-964D-2DC5DB1260A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3561334-C548-4E82-964D-2DC5DB1260A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3561334-C548-4E82-964D-2DC5DB1260A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3561334-C548-4E82-964D-2DC5DB1260A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB989F3B-556E-429D-8857-9081F9039D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB989F3B-556E-429D-8857-9081F9039D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB989F3B-556E-429D-8857-9081F9039D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB989F3B-556E-429D-8857-9081F9039D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

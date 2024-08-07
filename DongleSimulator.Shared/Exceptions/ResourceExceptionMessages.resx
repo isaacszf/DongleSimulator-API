@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="UNKNOWN_ERR" xml:space="preserve">
+        <value>Server error. Try again later...</value>
+    </data>
+    <data name="INVALID_EMAIL" xml:space="preserve">
+        <value>Email format is invalid</value>
+    </data>
+    <data name="INVALID_USERNAME" xml:space="preserve">
+        <value>The name must be between 5-20 characters and can only contain letters, numbers, and underscores (_)</value>
+    </data>
+    <data name="INVALID_PASSWORD" xml:space="preserve">
+        <value>The password must be between 6 and 100 characters long</value>
+    </data>
+    <data name="USERNAME_ALREADY_EXISTS" xml:space="preserve">
+        <value>Username already exists</value>
+    </data>
+    <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+        <value>Email already in use</value>
+    </data>
+    <data name="INVALID_CREDENTIALS" xml:space="preserve">
+        <value>Invalid credentials</value>
+    </data>
+    <data name="INVALID_TITLE" xml:space="preserve">
+        <value>The title must be between 3 and 20 characters long</value>
+    </data>
+    <data name="INVALID_SUBTITLE" xml:space="preserve">
+        <value>The subtitle must be between 3 and 20 characters long</value>
+    </data>
+    <data name="INVALID_IMAGE" xml:space="preserve">
+        <value>Image given is invalid. It must be a png or a jpg</value>
+    </data>
+    <data name="USERNAME_DOES_NOT_EXISTS" xml:space="preserve">
+        <value>User not found</value>
+    </data>
+    <data name="INVALID_SOURCE_ID" xml:space="preserve">
+        <value>Source not found</value>
+    </data>
+    <data name="CANNOT_DELETE_APPROVED" xml:space="preserve">
+        <value>Cannot delete a approved source</value>
+    </data>
+    <data name="STATUS_IS_ALREADY" xml:space="preserve">
+        <value>Status is already set as the chosen one</value>
+    </data>
+    <data name="INVALID_TEMPLATE_ID" xml:space="preserve">
+        <value>Template not found</value>
+    </data>
+    <data name="ITEM_NOT_FOUND" xml:space="preserve">
+        <value>ID with invalid format was given</value>
+    </data>
+    <data name="SOURCE_NOT_APPROVED" xml:space="preserve">
+        <value>Source not approved</value>
+    </data>
+    <data name="TEMPLATE_NOT_APPROVED" xml:space="preserve">
+        <value>Template not approved</value>
+    </data>
+    <data name="MISSING_BODY" xml:space="preserve">
+        <value>Request body is missing</value>
+    </data>
+    <data name="EMPTY_ITEM" xml:space="preserve">
+        <value>Item is empty</value>
+    </data>
+    <data name="INVALID_REPLACES" xml:space="preserve">
+        <value>Replaces must be between 1-2</value>
+    </data>
+    <data name="NOT_ENOUGH_SOURCES" xml:space="preserve">
+        <value>Not enough sources to fill the template</value>
+    </data>
+</root>
