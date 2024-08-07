@@ -37,6 +37,7 @@ O Bot irá procurar por essas cores e substituílas pelas sources escolhidas.
 ## TO-DO
 
 - Documentação Swagger - [ ]
+- Seed para criar um usuário admin - [ ]
 - Admin
   - Rota para deletar qualquer template - [ ]
   - Rota para negar qualquer template - [ ]
