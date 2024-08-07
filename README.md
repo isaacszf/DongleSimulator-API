@@ -25,7 +25,7 @@ EX:
   <image src="./images/ex.png" width="100">
 </div>
 
-O Bot irá procurar por essas cores e substituílas pelas sources escolhidas.
+O Bot irá procurar por essas cores e substituí-las pelas sources escolhidas.
 
 ## Ferramentas
 
