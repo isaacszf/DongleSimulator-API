@@ -2,6 +2,8 @@ using DongleSimulator.Application.UseCases.Admin.Generate;
 using DongleSimulator.Application.UseCases.Admin.Source.Approve;
 using DongleSimulator.Application.UseCases.Admin.Source.Deny;
 using DongleSimulator.Application.UseCases.Admin.Template.Approve;
+using DongleSimulator.Application.UseCases.Admin.Template.Delete;
+using DongleSimulator.Application.UseCases.Admin.Template.Deny;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetAll;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetAllByUsername;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetById;
@@ -16,6 +18,8 @@ using DongleSimulator.Application.UseCases.User.Register;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sqids;
+using DeleteTemplateByIdUseCase = DongleSimulator.Application.UseCases.Admin.Template.Delete.DeleteTemplateByIdUseCase;
+using IDeleteTemplateByIdUseCase = DongleSimulator.Application.UseCases.Admin.Template.Delete.IDeleteTemplateByIdUseCase;
 
 namespace DongleSimulator.Application;
 
@@ -41,7 +45,7 @@ public static class DependencyInjectionExtension
 
         // Templates
         services.AddScoped<ISendTemplateUseCase, SendTemplateUseCase>();
-        services.AddScoped<IDeleteTemplateByIdUseCase, DeleteTemplateByIdUseCase>();
+        services.AddScoped<UseCases.Template.Delete.IDeleteTemplateByIdUseCase, UseCases.Template.Delete.DeleteTemplateByIdUseCase>();
         
         // Dashboard
         services.AddScoped<IGetAllSourcesUseCase, GetAllSourcesUseCase>();
@@ -53,7 +57,9 @@ public static class DependencyInjectionExtension
         services.AddScoped<IApproveSourceUseCase, ApproveSourceUseCase>();
         services.AddScoped<IDenySourceUseCase, DenySourceUseCase>();
         services.AddScoped<IApproveTemplateUseCase, ApproveTemplateUseCase>();
+        services.AddScoped<IDenyTemplateUseCase, DenyTemplateUseCase>();
         services.AddScoped<UseCases.Admin.Source.Delete.IDeleteSourceByIdUseCase, UseCases.Admin.Source.Delete.DeleteSourceByIdUseCase>();
+        services.AddScoped<IDeleteTemplateByIdUseCase, DeleteTemplateByIdUseCase>();
         services.AddScoped<IGenerateImageUseCase, GenerateImageUseCase>();
     }
 

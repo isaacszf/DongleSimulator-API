@@ -3,6 +3,8 @@ using DongleSimulator.Application.UseCases.Admin.Source.Approve;
 using DongleSimulator.Application.UseCases.Admin.Source.Delete;
 using DongleSimulator.Application.UseCases.Admin.Source.Deny;
 using DongleSimulator.Application.UseCases.Admin.Template.Approve;
+using DongleSimulator.Application.UseCases.Admin.Template.Delete;
+using DongleSimulator.Application.UseCases.Admin.Template.Deny;
 using DongleSimulator.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +62,31 @@ public class AdminController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> ApproveTemplate(
         [FromServices] IApproveTemplateUseCase useCase,
+        [FromRoute] string id
+    )
+    {
+        await useCase.Execute(id);
+        return NoContent();
+    }
+    
+    [HttpPut("templates/deny/{id}")]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DenyTemplate(
+        [FromServices] IDenyTemplateUseCase useCase,
+        [FromRoute] string id
+    )
+    {
+        await useCase.Execute(id);
+        return NoContent();
+    }
+    
+    [HttpDelete("templates/delete/{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteTemplate(
+        [FromServices] IDeleteTemplateByIdUseCase useCase,
         [FromRoute] string id
     )
     {

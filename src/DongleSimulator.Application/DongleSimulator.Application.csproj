@@ -17,9 +17,4 @@
       <ProjectReference Include="..\DongleSimulator.Shared\DongleSimulator.Shared.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="UseCases\Admin\Template\Delete\" />
-      <Folder Include="UseCases\Admin\Template\Deny\" />
-    </ItemGroup>
-
 </Project>
