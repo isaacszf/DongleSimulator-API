@@ -1,14 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.API", "DongleSimulator.API\DongleSimulator.API.csproj", "{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FDC54415-FF02-4D0B-96F0-CB12571E1D29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Infra", "DongleSimulator.Infra\DongleSimulator.Infra.csproj", "{2EC77F4D-F06E-4746-9585-954D1A4DFA23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.API", "src\DongleSimulator.API\DongleSimulator.API.csproj", "{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Domain", "DongleSimulator.Domain\DongleSimulator.Domain.csproj", "{26AFF402-4250-4658-9EE3-8D312A85C208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Infra", "src\DongleSimulator.Infra\DongleSimulator.Infra.csproj", "{2EC77F4D-F06E-4746-9585-954D1A4DFA23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Shared", "DongleSimulator.Shared\DongleSimulator.Shared.csproj", "{E3561334-C548-4E82-964D-2DC5DB1260A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Domain", "src\DongleSimulator.Domain\DongleSimulator.Domain.csproj", "{26AFF402-4250-4658-9EE3-8D312A85C208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Application", "DongleSimulator.Application\DongleSimulator.Application.csproj", "{AB989F3B-556E-429D-8857-9081F9039D5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Shared", "src\DongleSimulator.Shared\DongleSimulator.Shared.csproj", "{E3561334-C548-4E82-964D-2DC5DB1260A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DongleSimulator.Application", "src\DongleSimulator.Application\DongleSimulator.Application.csproj", "{AB989F3B-556E-429D-8857-9081F9039D5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,12 @@ Global
 		{AB989F3B-556E-429D-8857-9081F9039D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB989F3B-556E-429D-8857-9081F9039D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB989F3B-556E-429D-8857-9081F9039D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0CB098F-1CD3-48E5-B6CB-3A62DACC7674} = {FDC54415-FF02-4D0B-96F0-CB12571E1D29}
+		{AB989F3B-556E-429D-8857-9081F9039D5C} = {FDC54415-FF02-4D0B-96F0-CB12571E1D29}
+		{26AFF402-4250-4658-9EE3-8D312A85C208} = {FDC54415-FF02-4D0B-96F0-CB12571E1D29}
+		{2EC77F4D-F06E-4746-9585-954D1A4DFA23} = {FDC54415-FF02-4D0B-96F0-CB12571E1D29}
+		{E3561334-C548-4E82-964D-2DC5DB1260A6} = {FDC54415-FF02-4D0B-96F0-CB12571E1D29}
 	EndGlobalSection
 EndGlobal
