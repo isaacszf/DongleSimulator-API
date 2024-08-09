@@ -51,7 +51,13 @@ O Bot irá procurar por essas cores e substituí-las pelas sources escolhidas.
 
 Para obter uma cópia local funcionando, siga estes passos simples.
 
-### Instalação
+### Instalação & Utilização
+
+Usuário Admin:
+```txt
+E-mail: dglsim@email.com
+Senha: dongle123456
+```
 
 1. Clone o repo
 2. Preencha as informações no arquivo `appsettings.Development.Example.json`
