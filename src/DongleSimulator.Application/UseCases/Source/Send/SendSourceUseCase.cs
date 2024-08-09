@@ -8,6 +8,7 @@ using Shared.Exceptions;
 using Shared.Exceptions.Base;
 using Shared.Requests;
 using Shared.Responses;
+using Sqids;
 
 namespace DongleSimulator.Application.UseCases.Source.Send;
 
@@ -17,18 +18,21 @@ public class SendSourceUseCase : ISendSourceUseCase
     private readonly ISourceWriteOnlyRepository _sourceWriteOnlyRepository;
     private readonly IStorageImageService _storageImageService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly SqidsEncoder<long> _sqids;
 
     public SendSourceUseCase(
         ILoggedUser loggedUser,
         ISourceWriteOnlyRepository sourceWriteOnlyRepository,
         IStorageImageService storageImageService,
-        IUnitOfWork unitOfWork
+        IUnitOfWork unitOfWork,
+        SqidsEncoder<long> sqids
         )
     {
         _loggedUser = loggedUser;
         _sourceWriteOnlyRepository = sourceWriteOnlyRepository;
         _storageImageService = storageImageService;
         _unitOfWork = unitOfWork;
+        _sqids = sqids;
     }
     
     public async Task<ResponseImageRegisteredJson> Execute(RequestSendImageJson req)
@@ -61,6 +65,7 @@ public class SendSourceUseCase : ISendSourceUseCase
         
         return new ResponseImageRegisteredJson
         {
+            Id = _sqids.Encode(source.Id),
             Title = source.Title,
             Subtitle = source.Subtitle,
             ImageIdentifier = source.ImageIdentifier,

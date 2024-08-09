@@ -8,6 +8,7 @@ using Shared.Exceptions;
 using Shared.Exceptions.Base;
 using Shared.Requests;
 using Shared.Responses;
+using Sqids;
 
 namespace DongleSimulator.Application.UseCases.Template.Send;
 
@@ -17,18 +18,21 @@ public class SendTemplateUseCase : ISendTemplateUseCase
     private readonly ITemplateWriteOnlyRepository _templateWriteOnlyRepository;
     private readonly IStorageImageService _storageImageService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly SqidsEncoder<long> _sqids;
 
     public SendTemplateUseCase(
         ILoggedUser loggedUser,
         ITemplateWriteOnlyRepository templateWriteOnlyRepository,
         IStorageImageService storageImageService,
-        IUnitOfWork unitOfWork
+        IUnitOfWork unitOfWork,
+        SqidsEncoder<long> sqids
     )
     {
         _loggedUser = loggedUser;
         _templateWriteOnlyRepository = templateWriteOnlyRepository;
         _storageImageService = storageImageService;
         _unitOfWork = unitOfWork;
+        _sqids = sqids;
     }
     
     public async Task<ResponseImageRegisteredJson> Execute(RequestSendTemplateJson req)
@@ -37,7 +41,7 @@ public class SendTemplateUseCase : ISendTemplateUseCase
         
         var loggedUser = await _loggedUser.User();
         
-        var source = new Domain.Entities.Template
+        var template = new Domain.Entities.Template
         {
             Title = req.Title,
             Subtitle = req.Subtitle,
@@ -52,19 +56,20 @@ public class SendTemplateUseCase : ISendTemplateUseCase
         var (isValidImage, ext) = fileStream.ValidateAndGetImageExtension();
         if (!isValidImage) throw new ErrorOnValidation(ResourceExceptionMessages.INVALID_IMAGE);
         
-        source.ImageIdentifier = $"{loggedUser.Name}-template-{Guid.NewGuid()}{ext}";
+        template.ImageIdentifier = $"{loggedUser.Name}-template-{Guid.NewGuid()}{ext}";
         
-        await _templateWriteOnlyRepository.Create(source);
+        await _templateWriteOnlyRepository.Create(template);
         await _unitOfWork.Commit();
 
         fileStream.Position = 0;
-        await _storageImageService.Upload(fileStream, source.ImageIdentifier);
+        await _storageImageService.Upload(fileStream, template.ImageIdentifier);
         
         return new ResponseImageRegisteredJson
         {
-            Title = source.Title,
-            Subtitle = source.Subtitle,
-            ImageIdentifier = source.ImageIdentifier,
+            Id = _sqids.Encode(template.Id),
+            Title = template.Title,
+            Subtitle = template.Subtitle,
+            ImageIdentifier = template.ImageIdentifier,
         };
     }
 
