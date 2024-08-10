@@ -5,11 +5,9 @@ using DongleSimulator.Application.UseCases.Admin.Template.Approve;
 using DongleSimulator.Application.UseCases.Admin.Template.Deny;
 using DongleSimulator.Application.UseCases.Admin.User.Delete;
 using DongleSimulator.Application.UseCases.Admin.User.GetAll;
-using DongleSimulator.Application.UseCases.Dashboard.Source.GetAll;
-using DongleSimulator.Application.UseCases.Dashboard.Source.GetAllByUsername;
+using DongleSimulator.Application.UseCases.Dashboard.Source.Filter;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetById;
-using DongleSimulator.Application.UseCases.Dashboard.Template.GetAll;
-using DongleSimulator.Application.UseCases.Dashboard.Template.GetAllByUsername;
+using DongleSimulator.Application.UseCases.Dashboard.Template.Filter;
 using DongleSimulator.Application.UseCases.Dashboard.Template.GetById;
 using DongleSimulator.Application.UseCases.Source.Delete;
 using DongleSimulator.Application.UseCases.Source.Send;
@@ -50,12 +48,10 @@ public static class DependencyInjectionExtension
         services.AddScoped<UseCases.Template.Delete.IDeleteTemplateByIdUseCase, UseCases.Template.Delete.DeleteTemplateByIdUseCase>();
         
         // Dashboard
-        services.AddScoped<IGetAllSourcesUseCase, GetAllSourcesUseCase>();
-        services.AddScoped<IGetAllSourcesByUserUseCase, GetAllSourcesByUserUseCase>();
         services.AddScoped<IGetSourceByIdUseCase, GetSourceByIdUseCase>();
-        services.AddScoped<IGetAllTemplatesUseCase, GetAllTemplatesUseCase>();
-        services.AddScoped<IGetAllTemplatesByUsernameUseCase, GetAllTemplatesByUsernameUseCase>();
         services.AddScoped<IGetTemplateByIdUseCase, GetTemplateByIdUseCase>();
+        services.AddScoped<IFilterSourcesUseCase, FilterSourcesUseCase>();
+        services.AddScoped<IFilterTemplatesUseCase, FilterTemplatesUseCase>();
         services.AddScoped<IGetAllUsersUseCase, GetAllUsersUseCase>();
         
         // Admin

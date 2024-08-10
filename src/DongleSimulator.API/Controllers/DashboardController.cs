@@ -1,10 +1,9 @@
-using DongleSimulator.Application.UseCases.Dashboard.Source.GetAll;
-using DongleSimulator.Application.UseCases.Dashboard.Source.GetAllByUsername;
+using DongleSimulator.Application.UseCases.Dashboard.Source.Filter;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetById;
-using DongleSimulator.Application.UseCases.Dashboard.Template.GetAll;
-using DongleSimulator.Application.UseCases.Dashboard.Template.GetAllByUsername;
+using DongleSimulator.Application.UseCases.Dashboard.Template.Filter;
 using DongleSimulator.Application.UseCases.Dashboard.Template.GetById;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Requests;
 using Shared.Responses;
 
 namespace DongleSimulator.Controllers;
@@ -13,33 +12,20 @@ namespace DongleSimulator.Controllers;
 [Route("api/dashboard")]
 public class DashboardController : ControllerBase
 {
-    [HttpGet("sources")]
+    [HttpPost("sources")]
     [ProducesResponseType(typeof(ResponseSourcesFromUserJson), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllSources(
-        [FromServices] IGetAllSourcesUseCase useCase,
+    public async Task<IActionResult> FilterSources(
+        [FromServices] IFilterSourcesUseCase useCase,
+        [FromBody] RequestFilterSourceJson req,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10
     )
     {
-        var res = await useCase.Execute(page, pageSize);
+        var res = await useCase.Execute(req, page, pageSize);
         return Ok(res);
     }
     
-    [HttpGet("sources/user/{username}")]
-    [ProducesResponseType(typeof(ResponseSourcesFromUserJson), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetAllSourcesByUsername(
-        [FromServices] IGetAllSourcesByUserUseCase useCase,
-        [FromRoute] string username,
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10
-    )
-    {
-        var res = await useCase.Execute(username, page, pageSize);
-        return Ok(res);
-    }
-    
-    [HttpGet("sources/info/{id}")]
+    [HttpGet("sources/{id}")]
     [ProducesResponseType(typeof(ResponseSourcesFromUserJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetSourceById(
@@ -51,33 +37,20 @@ public class DashboardController : ControllerBase
         return Ok(res);
     }
     
-    [HttpGet("templates")]
-    [ProducesResponseType(typeof(ResponseTemplatesFromUserJson), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAllTemplates(
-        [FromServices] IGetAllTemplatesUseCase useCase,
-        [FromQuery] int page = 1,
-        [FromQuery] int pageSize = 10
-    )
-    {
-        var res = await useCase.Execute(page, pageSize);
-        return Ok(res);
-    }
-    
-    [HttpGet("templates/user/{username}")]
+    [HttpPost("templates")]
     [ProducesResponseType(typeof(ResponseSourcesFromUserJson), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetAllTemplatesByUsername(
-        [FromServices] IGetAllTemplatesByUsernameUseCase useCase,
-        [FromRoute] string username,
+    public async Task<IActionResult> FilterTemplates(
+        [FromServices] IFilterTemplatesUseCase useCase,
+        [FromBody] RequestFilterTemplateJson req,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10
     )
     {
-        var res = await useCase.Execute(username, page, pageSize);
+        var res = await useCase.Execute(req, page, pageSize);
         return Ok(res);
     }
     
-    [HttpGet("templates/info/{id}")]
+    [HttpGet("templates/{id}")]
     [ProducesResponseType(typeof(ResponseSourcesFromUserJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetTemplateById(
