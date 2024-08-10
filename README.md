@@ -45,7 +45,7 @@ O Bot irá procurar por essas cores e substituí-las pelas sources escolhidas.
 - User
   - Rotas para alternar informações pessoais como username e senha - [ ]
 - Dashboard
-  - Filtro avançado de sources e templates - [ ]
+  - Filtro avançado de sources e templates - [X]
 - Implementar Razor (?) - [ ]
 
 ## Rodando
