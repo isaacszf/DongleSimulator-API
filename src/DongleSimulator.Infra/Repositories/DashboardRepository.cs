@@ -49,7 +49,7 @@ public class DashboardRepository : IDashboardReadOnlyRepository
             TotalCount = totalCount
         };
     }
-
+    
     public async Task<PagedList<Source>> GetAllSourcesByUsername(string username, int page, int pageSize)
     {
         var totalCount = await _dbContext.Sources.CountAsync();
@@ -58,6 +58,8 @@ public class DashboardRepository : IDashboardReadOnlyRepository
             .AsNoTracking()
             .Include(s => s.User)
             .Where(s => s.User.Name.Equals(username))
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
         
         return new PagedList<Source>
@@ -75,5 +77,53 @@ public class DashboardRepository : IDashboardReadOnlyRepository
             .AsNoTracking()
             .Include(s => s.User)
             .FirstOrDefaultAsync(s => s.Id.Equals(id));
+    }
+    
+    public async Task<PagedList<Template>> GetAllTemplatesByUsername(string username, int page, int pageSize)
+    {
+        var totalCount = await _dbContext.Templates.CountAsync();
+        
+        var templates = await _dbContext.Templates
+            .AsNoTracking()
+            .Include(s => s.User)
+            .Where(s => s.User.Name.Equals(username))
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
+        return new PagedList<Template>
+        {
+            Items = templates,
+            Page = page,
+            PageSize = pageSize,
+            TotalCount = totalCount
+        };
+    }
+
+    public async Task<Template?> GetTemplateById(long id)
+    {
+        return await _dbContext.Templates
+            .AsNoTracking()
+            .Include(s => s.User)
+            .FirstOrDefaultAsync(s => s.Id.Equals(id));
+    }
+    
+    public async Task<PagedList<User>> GetAllUsers(int page, int pageSize)
+    {
+        var totalCount = await _dbContext.Sources.CountAsync();
+
+        var users = await _dbContext.Users
+            .AsNoTracking()
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return new PagedList<User>
+        {
+            Items = users,
+            Page = page,
+            PageSize = pageSize,
+            TotalCount = totalCount
+        };
     }
 }

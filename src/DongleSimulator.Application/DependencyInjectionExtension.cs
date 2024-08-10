@@ -2,15 +2,17 @@ using DongleSimulator.Application.UseCases.Admin.Generate;
 using DongleSimulator.Application.UseCases.Admin.Source.Approve;
 using DongleSimulator.Application.UseCases.Admin.Source.Deny;
 using DongleSimulator.Application.UseCases.Admin.Template.Approve;
-using DongleSimulator.Application.UseCases.Admin.Template.Delete;
 using DongleSimulator.Application.UseCases.Admin.Template.Deny;
+using DongleSimulator.Application.UseCases.Admin.User.Delete;
+using DongleSimulator.Application.UseCases.Admin.User.GetAll;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetAll;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetAllByUsername;
 using DongleSimulator.Application.UseCases.Dashboard.Source.GetById;
 using DongleSimulator.Application.UseCases.Dashboard.Template.GetAll;
+using DongleSimulator.Application.UseCases.Dashboard.Template.GetAllByUsername;
+using DongleSimulator.Application.UseCases.Dashboard.Template.GetById;
 using DongleSimulator.Application.UseCases.Source.Delete;
 using DongleSimulator.Application.UseCases.Source.Send;
-using DongleSimulator.Application.UseCases.Template.Delete;
 using DongleSimulator.Application.UseCases.Template.Send;
 using DongleSimulator.Application.UseCases.User.Login;
 using DongleSimulator.Application.UseCases.User.Profile;
@@ -52,6 +54,9 @@ public static class DependencyInjectionExtension
         services.AddScoped<IGetAllSourcesByUserUseCase, GetAllSourcesByUserUseCase>();
         services.AddScoped<IGetSourceByIdUseCase, GetSourceByIdUseCase>();
         services.AddScoped<IGetAllTemplatesUseCase, GetAllTemplatesUseCase>();
+        services.AddScoped<IGetAllTemplatesByUsernameUseCase, GetAllTemplatesByUsernameUseCase>();
+        services.AddScoped<IGetTemplateByIdUseCase, GetTemplateByIdUseCase>();
+        services.AddScoped<IGetAllUsersUseCase, GetAllUsersUseCase>();
         
         // Admin
         services.AddScoped<IApproveSourceUseCase, ApproveSourceUseCase>();
@@ -61,6 +66,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<UseCases.Admin.Source.Delete.IDeleteSourceByIdUseCase, UseCases.Admin.Source.Delete.DeleteSourceByIdUseCase>();
         services.AddScoped<IDeleteTemplateByIdUseCase, DeleteTemplateByIdUseCase>();
         services.AddScoped<IGenerateImageUseCase, GenerateImageUseCase>();
+        services.AddScoped<IDeleteUserByIdUseCase, DeleteUserByIdUseCase>();
     }
 
     private static void AddSqids(IServiceCollection services, IConfiguration config)

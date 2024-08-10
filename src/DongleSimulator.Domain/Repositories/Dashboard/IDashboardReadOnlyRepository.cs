@@ -9,4 +9,8 @@ public interface IDashboardReadOnlyRepository
     public Task<Entities.Source?> GetSourceById(long id);
     
     public Task<PagedList<Entities.Template>> GetAllTemplates(int page, int pageSize);
+    public Task<PagedList<Entities.Template>> GetAllTemplatesByUsername(string username, int page, int pageSize);
+    public Task<Entities.Template?> GetTemplateById(long id);
+    
+    public Task<PagedList<Entities.User>> GetAllUsers(int page, int pageSize);
 }

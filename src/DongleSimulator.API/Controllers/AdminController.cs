@@ -5,6 +5,8 @@ using DongleSimulator.Application.UseCases.Admin.Source.Deny;
 using DongleSimulator.Application.UseCases.Admin.Template.Approve;
 using DongleSimulator.Application.UseCases.Admin.Template.Delete;
 using DongleSimulator.Application.UseCases.Admin.Template.Deny;
+using DongleSimulator.Application.UseCases.Admin.User.Delete;
+using DongleSimulator.Application.UseCases.Admin.User.GetAll;
 using DongleSimulator.Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -89,6 +91,30 @@ public class AdminController : ControllerBase
         [FromServices] IDeleteTemplateByIdUseCase useCase,
         [FromRoute] string id
     )
+    {
+        await useCase.Execute(id);
+        return NoContent();
+    }
+    
+    [HttpGet("users")]
+    [ProducesResponseType(typeof(ResponsesUsersJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAllUsers(
+        [FromServices] IGetAllUsersUseCase useCase,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10
+    )
+    {
+        var res = await useCase.Execute(page, pageSize);
+        return Ok(res);
+    }
+
+    [HttpDelete("users/delete/{id}")]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> DeleteUser(
+            [FromServices] IDeleteUserByIdUseCase useCase,
+            [FromRoute] string id
+        )
     {
         await useCase.Execute(id);
         return NoContent();

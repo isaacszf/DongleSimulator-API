@@ -25,6 +25,14 @@ public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository
             .AnyAsync(u => u.Email.Equals(email));
     }
 
+    public async Task<User?> GetUserById(long id)
+    {
+        return await _dbContext.Users
+            .Include(u => u.Sources)
+            .Include(u => u.Templates)
+            .FirstOrDefaultAsync(u => u.Id.Equals(id));
+    }
+    
     public async Task<User?> GetUserByEmailAndPassword(string email, string password)
     {
         return await _dbContext.Users
@@ -33,4 +41,10 @@ public class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository
     }
     
     public async Task Create(User user) => await _dbContext.Users.AddAsync(user);
+
+    public async Task Delete(long id)
+    {
+        var user = await _dbContext.Users.FindAsync(id);
+        _dbContext.Users.Remove(user!);
+    }
 }

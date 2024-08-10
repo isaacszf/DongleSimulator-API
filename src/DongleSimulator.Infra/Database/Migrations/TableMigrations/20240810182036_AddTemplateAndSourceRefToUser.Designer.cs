@@ -3,6 +3,7 @@ using System;
 using DongleSimulator.Infra.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DongleSimulator.Infra.TableMigrations
 {
     [DbContext(typeof(DongleSimulatorDbContext))]
-    partial class DongleSimulatorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240810182036_AddTemplateAndSourceRefToUser")]
+    partial class AddTemplateAndSourceRefToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

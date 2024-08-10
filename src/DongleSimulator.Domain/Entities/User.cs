@@ -11,4 +11,7 @@ public class User
     public string Role { get; set; } = UserRole.Default;
     public Guid UserIdentifier { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public IList<Template> Templates { get; set; }  = [];
+    public IList<Source> Sources { get; set; } = [];
 }

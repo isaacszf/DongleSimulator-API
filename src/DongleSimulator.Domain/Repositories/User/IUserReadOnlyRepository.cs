@@ -1,3 +1,5 @@
+using DongleSimulator.Domain.Custom;
+
 namespace DongleSimulator.Domain.Repositories.User;
 
 public interface IUserReadOnlyRepository

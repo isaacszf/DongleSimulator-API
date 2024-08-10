@@ -43,7 +43,7 @@
         <value>The title must be between 3 and 20 characters long</value>
     </data>
     <data name="INVALID_SUBTITLE" xml:space="preserve">
-        <value>The subtitle must be between 3 and 20 characters long</value>
+        <value>The subtitle must be between 6 and 40 characters long</value>
     </data>
     <data name="INVALID_IMAGE" xml:space="preserve">
         <value>Image given is invalid. It must be a png or a jpg</value>
