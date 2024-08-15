@@ -41,12 +41,12 @@ O Bot irá procurar por essas cores e substituí-las pelas sources escolhidas.
 - Admin
   - Rota para deletar qualquer template - [X]
   - Rota para negar qualquer template - [X]
-  - Gerenciar usuários cadastrados - [ ]
+  - Gerenciar usuários cadastrados - [X]
 - User
   - Rotas para alternar informações pessoais como username e senha - [ ]
 - Dashboard
   - Filtro avançado de sources e templates - [X]
-- Implementar Blazor (?) - [ ]
+- Implementar Docker (?) - [ ]
 
 ## Rodando
 
